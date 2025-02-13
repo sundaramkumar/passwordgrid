@@ -49,7 +49,7 @@ grid.gridConfig({
 
 Max gridSize is 16 and min is 8.
 
-If everything is set to false as below, then it is invalid, so grid parameters will be set to default.
+If everything is set to _false_ as below, then it is invalid, so grid parameters will be set to default.
 
 ```javascript
 grid.gridConfig({
