@@ -1,0 +1,15 @@
+{
+  "name": "passwordgrid",
+  "version": "1.0.0",
+  "description": "NPM Package to Generate Password Grid",
+  "keywords": [
+    "password",
+    "password grid",
+    "secure password",
+    "password generator"
+  ],
+  "license": "ISC",
+  "author": "Kumar Sundaram",
+  "type": "commonjs",
+  "main": "index.js"
+}
