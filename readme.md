@@ -1,3 +1,3 @@
 # PasswordGrid
 
-A Password Grid Generator
+NPM Package to Generate Password Grid
