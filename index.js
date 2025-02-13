@@ -36,6 +36,14 @@ class passwordGrid {
       gridSize: 8,
     };
 
+    if(config.gridSize < 8) config.gridSize = 8;
+    if(config.gridSize > 16) config.gridSize = 16;
+
+    //if everything is set false, then it is invalid, so set to default
+    if(config.numbers == false && config.alphaUpper == false && config.alphaLower == false && config.symbols == false) {
+      config = defaultConfig;
+    }
+
     Object.assign(this, defaultConfig, config);
   }
 
