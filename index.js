@@ -9,7 +9,6 @@ class passwordGrid {
     this.alphaLower = true;
     this.numbers = true;
     this.symbols = true;
-    this.gridSize = 8;
   }
 
   randomChar = (str) => {
@@ -33,14 +32,17 @@ class passwordGrid {
       alphaUpper: true,
       alphaLower: true,
       symbols: true,
-      gridSize: 8,
     };
 
-    if(config.gridSize < 8) config.gridSize = 8;
-    if(config.gridSize > 16) config.gridSize = 16;
+    if (config.gridSize != 8) config.gridSize = 8;
 
     //if everything is set false, then it is invalid, so set to default
-    if(config.numbers == false && config.alphaUpper == false && config.alphaLower == false && config.symbols == false) {
+    if (
+      config.numbers == false &&
+      config.alphaUpper == false &&
+      config.alphaLower == false &&
+      config.symbols == false
+    ) {
       config = defaultConfig;
     }
 
@@ -50,14 +52,26 @@ class passwordGrid {
   generateGrid() {
     var usableChars = this.getUsableChars();
     var str = "";
-    var headr = "+" + Array(this.gridSize * 4).join("-") + "+\n";
-    var divr = "|" + Array(this.gridSize * 4).join("-") + "|\n";
 
+    var topHeaderLabels = ["1", "2", "3", "4", "5", "6", "7", "8"];
+    var sideHeaderLabels = ["A", "B", "C", "D", "E", "F", "G", "H"];
+    var headr = "   +" + Array(this.gridSize * 4).join("-") + "+\n";
+    var topheader = "     ";
+
+    var divr = "   |" + Array(this.gridSize * 4).join("-") + "|\n";
+
+    str += topheader;
+
+    for (var x = 0; x < this.gridSize; x++) {
+      str += topHeaderLabels[x] + "   ";
+    }
+    str += "\n";
     str += headr;
     for (var y = 0; y < this.gridSize; y++) {
+      str += sideHeaderLabels[y] + " ";
       for (var c = 0; c < this.gridSize; c++) {
-        str += "| " + this.randomChar(usableChars) + " ";
-        if (c == this.gridSize - 1) str += "|";
+        str += " | " + this.randomChar(usableChars) + "";
+        if (c == this.gridSize - 1) str += " |";
       }
       if (y != this.gridSize - 1) str += "\n" + divr;
       if (y == this.gridSize - 1) str += "\n";
